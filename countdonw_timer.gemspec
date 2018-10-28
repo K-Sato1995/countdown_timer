@@ -6,26 +6,21 @@ require "countdonw_timer/version"
 Gem::Specification.new do |spec|
   spec.name          = "countdonw_timer"
   spec.version       = CountdonwTimer::VERSION
-  spec.authors       = ["Katsuki"]
-  spec.email         = ["Katsuki_Sato0130@icloud.com"]
+  spec.authors       = ["K-Sato"]
+  spec.email         = ["e-mail@example.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Summary}
+  spec.description   = %q{Description}
+  spec.homepage      = "https://github.com/K-Sato1995/countdown_timer"
   spec.license       = "MIT"
 
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
   if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
+   spec.metadata["allowed_push_host"] = 'https://rubygems.org'
   else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
+   raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
 
-  # Specify which files should be added to the gem when it is released.
-  # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
-  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
+  spec.files = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
   spec.bindir        = "exe"
