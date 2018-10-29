@@ -1,45 +1,49 @@
 module CountdonwTimer
   class Timer
     class << self
-      def set_timer(year, month = 1, day = 1, hour = 0, min = 0)
+      def set_timer(year, month = 1, day = 1, hour = 0, min = 0, sec = 0)
         now = Time.now.to_i
-        destination_time = Time.new(year, month, day, hour, min).to_i
+        destination_time = Time.new(year, month, day, hour, min, sec).to_i
         remaining_day = 0
 
         if now > destination_time
-          hour = (now - destination_time) / 60 / 60
-          remaining_day = hour / 24 if hour > 24
-          remaining_hour = hour - (remaining_day * 24)
+          total_hours = (now - destination_time) / 60 / 60
+          remaining_day = total_hours / 24 if total_hours > 24
+          remaining_hour = total_hours - (remaining_day * 24)
           remaining_min = (now - destination_time) / 60 % 60
+          remaining_sec = (now - destination_time) - ((remaining_day * 24 * 60 * 60) + (remaining_hour * 60 * 60) + (remaining_min * 60))
         else
-          hour = (destination_time - now) / 60 / 60
-          remaining_day = hour / 24 if hour > 24
-          remaining_hour = hour - (remaining_day * 24)
-          remaining_min = (now - destination_time) / 60 % 60
+          total_hours = (destination_time - now) / 60 / 60
+          remaining_day = total_hours / 24 if total_hours > 24
+          remaining_hour = total_hours - (remaining_day * 24)
+          remaining_min = (destination_time - now) / 60 % 60
+          remaining_sec = (destination_time - now) - ((remaining_day * 24 * 60 * 60) + (remaining_hour * 60 * 60) + (remaining_min * 60))
         end
 
-        return "#{remaining_day}:#{remaining_hour}:#{remaining_min}"
+        return "#{remaining_day}/#{remaining_hour}:#{remaining_min}:#{remaining_sec}"
       end
     end
 
-    def set_timer(year, month = 1, day = 1, hour = 0, min = 0)
+    def set_timer(year, month = 1, day = 1, hour = 0, min = 0, sec = 0)
       now = Time.now.to_i
-      destination_time = Time.new(year, month, day, hour, min).to_i
+      destination_time = Time.new(year, month, day, hour, min, sec).to_i
       remaining_day = 0
 
       if now > destination_time
-        hour = (now - destination_time) / 60 / 60
-        remaining_day = hour / 24 if hour > 24
-        remaining_hour = hour - (remaining_day * 24)
+        total_hours = (now - destination_time) / 60 / 60
+        remaining_day = total_hours / 24 if total_hours > 24
+        remaining_hour = total_hours - (remaining_day * 24)
         remaining_min = (now - destination_time) / 60 % 60
+        remaining_sec = (now - destination_time) - ((remaining_day * 24 * 60 * 60) + (remaining_hour * 60 * 60) + (remaining_min * 60))
       else
-        hour = ( destination_time - now) / 60 / 60
-        remaining_day = hour / 24 if hour > 24
-        remaining_hour = hour - (remaining_day * 24)
-        remaining_min = (now - destination_time) / 60 % 60
+        total_hours = (destination_time - now) / 60 / 60
+        remaining_day = total_hours / 24 if total_hours > 24
+        remaining_hour = total_hours - (remaining_day * 24)
+        remaining_min = (destination_time - now) / 60 % 60
+        remaining_sec = (destination_time - now) - ((remaining_day * 24 * 60 * 60) + (remaining_hour * 60 * 60) + (remaining_min * 60))
       end
 
-      return "#{remaining_day}:#{remaining_hour}:#{remaining_min}"
+      return "#{remaining_day}/#{remaining_hour}:#{remaining_min}:#{remaining_sec}"
     end
   end
 end

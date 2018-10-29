@@ -5,4 +5,4 @@ module CountdonwTimer
 end
 
 
-p CountdonwTimer::Timer.set_timer(2018, 10, 29, 23, 0)
+p CountdonwTimer::Timer.set_timer(2018, 10, 30, 12)
