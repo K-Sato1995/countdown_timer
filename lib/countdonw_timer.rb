@@ -3,3 +3,6 @@ require_relative "countdonw_timer/timer"
 
 module CountdonwTimer
 end
+
+
+p CountdonwTimer::Timer.set_timer(2018, 11, 16, 20, 0)
