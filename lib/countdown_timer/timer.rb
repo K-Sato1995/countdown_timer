@@ -1,4 +1,4 @@
-module CountdonwTimer
+module CountdownTimer
   class Timer
     class << self
       def set_timer(year, month = 1, day = 1, hour = 0, min = 0, sec = 0)
