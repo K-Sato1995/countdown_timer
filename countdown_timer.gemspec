@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "countdonw_timer/version"
+require "countdown_timer/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "countdonw_timer"
-  spec.version       = CountdonwTimer::VERSION
+  spec.name          = "countdown_timer"
+  spec.version       = CountdownTimer::VERSION
   spec.authors       = ["K-Sato"]
   spec.email         = ["e-mail@example.com"]
 
